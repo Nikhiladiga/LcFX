@@ -1,8 +1,6 @@
 package org.nikhiladiga.controller;
 
 import com.jfoenix.controls.JFXRadioButton;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -56,6 +54,9 @@ public class MainController {
     private JFXRadioButton terminalFalse;
 
 
+    /**
+     * Method to fills in values to the CheckComboBox and adds listeners to nodes
+     */
     public void initialize() {
         //Add categories to CheckComboBox
         final ObservableList<String> categories = FXCollections.observableArrayList();
@@ -124,42 +125,46 @@ public class MainController {
 
     }
 
+    /**
+     * Method to validate all input entered by the user
+     * @return boolean
+     */
     public boolean validateInput() {
         boolean valid = true;
 
         if (appVersion.getText() == null || appVersion.getText().equals("")) {
             valid = false;
-            desktopEntryService.displayAlert("Please enter a valid version", Alert.AlertType.ERROR);
+            desktopEntryService.displayAlert("Please enter a valid version", "Error", Alert.AlertType.ERROR);
             return valid;
         } else {
             if (!(Pattern.matches("[0-9]+.[0-9]+", appVersion.getText()))) {
                 valid = false;
-                desktopEntryService.displayAlert("Please enter a valid version", Alert.AlertType.ERROR);
+                desktopEntryService.displayAlert("Please enter a valid version","Error", Alert.AlertType.ERROR);
                 return valid;
             }
         }
 
         if (appName.getText() == null || appName.getText().equals("")) {
             valid = false;
-            desktopEntryService.displayAlert("Please enter a valid app name", Alert.AlertType.ERROR);
+            desktopEntryService.displayAlert("Please enter a valid app name","Error", Alert.AlertType.ERROR);
             return valid;
         }
 
         if (appComment.getText() == null || appComment.getText().equals("")) {
             valid = false;
-            desktopEntryService.displayAlert("Please enter a valid comment", Alert.AlertType.ERROR);
+            desktopEntryService.displayAlert("Please enter a valid comment","Error", Alert.AlertType.ERROR);
             return valid;
         }
 
         if (appExecPath.getText() == null || appExecPath.getText().equals("") || appExecPath.getText().equals("Path to executable file or script")) {
             valid = false;
-            desktopEntryService.displayAlert("Please choose a valid executable", Alert.AlertType.ERROR);
+            desktopEntryService.displayAlert("Please choose a valid executable", "Error",Alert.AlertType.ERROR);
             return valid;
         }
 
         if (appIconPath.getText() == null || appIconPath.getText().equals("") || appExecPath.getText().equals("Path to application icon")) {
             valid = false;
-            desktopEntryService.displayAlert("Please choose a valid app icon", Alert.AlertType.ERROR);
+            desktopEntryService.displayAlert("Please choose a valid app icon","Error", Alert.AlertType.ERROR);
             return valid;
         }
 

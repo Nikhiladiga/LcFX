@@ -12,9 +12,19 @@ import java.util.Collections;
 
 public class DesktopEntryService {
 
-    private Utils utils = new Utils();
+    private final Utils utils = new Utils();
 
-    //Method with basic file structure as string that accepts dynamic values
+    /**
+     * Method that creates file structure from the input content
+     * @param version Version of the application
+     * @param isTerminalRequired If application uses terminal
+     * @param appName Name of the application
+     * @param appComment Comments
+     * @param appExecPath Path to the executable file
+     * @param appIconPath Path to the application icon
+     * @param categories Categories that the application falls in
+     * @return boolean
+     */
     public boolean generateFileContent(String version, Boolean isTerminalRequired, String appName, String appComment, String appExecPath, String appIconPath, ObservableList<String> categories){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[Desktop Entry]");
@@ -47,17 +57,22 @@ public class DesktopEntryService {
 
         var result = saveFile(appName.toLowerCase().trim()+".desktop",stringBuilder);
         if(result){
-            displayAlert("Success!", Alert.AlertType.INFORMATION);
+            displayAlert("Success!","Success", Alert.AlertType.INFORMATION);
             return true;
         }else{
-            displayAlert("Unable to create file. Please try running the application as a root user", Alert.AlertType.ERROR);
+            displayAlert("Unknown error occurred!","Error", Alert.AlertType.ERROR);
             return false;
         }
 
     }
 
 
-    //Method to write file to location
+    /**
+     * Method that saves file to local location
+     * @param fileName Name of the file (Application name in lowercases appened with .desktop
+     * @param content Generated contents of the file
+     * @return boolean
+     */
     public boolean saveFile(String fileName, StringBuilder content){
         String username = utils.execCmd(new String[]{"bash","-c","whoami"});
         if(username!=null){
@@ -75,9 +90,15 @@ public class DesktopEntryService {
     }
 
 
-    public void displayAlert(String headerText, Alert.AlertType alertType) {
+    /**
+     * Method that displays alerts
+     * @param headerText Alert header text
+     * @param alertTitle Alert box title
+     * @param alertType Type of alert
+     */
+    public void displayAlert(String headerText, String alertTitle,Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
-        alert.setTitle("Error");
+        alert.setTitle(alertTitle);
         alert.setHeaderText(headerText);
         alert.showAndWait();
     }

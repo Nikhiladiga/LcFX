@@ -27,7 +27,7 @@
                      <children>
                         <VBox prefHeight="54.0" prefWidth="427.0" spacing="10.0">
                            <children>
-                              <Label style="-fx-text-fill: #fff;" text="Version*" />
+                              <Label style="-fx-text-fill: #fff;" text="Version* (Ex:1.0)" />
                               <TextField fx:id="appVersion" stylesheets="@../css/main.css" />
                            </children>
                         </VBox>

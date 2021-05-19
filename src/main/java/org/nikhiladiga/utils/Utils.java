@@ -1,12 +1,16 @@
 package org.nikhiladiga.utils;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
 public class Utils {
 
+    /**
+     * Method to execute shell commands from program
+     * @param cmd Command that is to be executed
+     * @return String output
+     */
     public String execCmd(String[] cmd){
         try {
             Process p = Runtime.getRuntime().exec(cmd);
