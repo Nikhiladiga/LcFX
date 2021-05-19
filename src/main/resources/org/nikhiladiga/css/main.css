@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+/*
+Text field styles
+*/
+.text-field{
+    -fx-background-color:#0E0F0F;
+    -fx-text-fill:#FFF;
+    -fx-background-insets:0,2;
+    -fx-background-radius:5,0;
+    -fx-border-radius:30;
+    -fx-text-size:14px;
+    -fx-min-width: 35;
+    -fx-min-height: 35;
+    -fx-font-family:"Roboto";
+}
+
+.text-field:focused{
+     -fx-background-color:
+        #6B4EFF,
+        #0E0F0F;
+}
+
+/*
+Path label styles
+*/
+.path-label{
+   -fx-background-color:#0E0F0F;
+       -fx-text-fill:#555;
+       -fx-background-insets:0,2;
+       -fx-background-radius:5,0;
+       -fx-border-radius:30;
+       -fx-text-size:12px;
+       -fx-min-width: 35;
+       -fx-min-height: 35;
+}
+
+.label{
+    -fx-font-family:"Roboto";
+}
+
+/*
+Menubar style
+*/
+.menu-bar{
+    -fx-background-color: #313033;
+}
+
+.menu .label{
+    -fx-text-fill:#fff;
+}
+
+.menu-item .label{
+    -fx-text-fill:#fff;
+}
+
+.context-menu{
+    -fx-background-color: #313033;
+}
+
+/*
+Button styles
+*/
+.button-raised{
+    -fx-background-color:#6B4EFF;
+    -fx-text-fill:#FFF;
+    -jfx-button-type:RAISED;
+    -fx-font-size:20;
+}
+
+/*
+Radio button styles
+*/
+.jfx-radio-button {
+    -jfx-selected-color:#6B4EFF;
+}
+
+
+.combo-box{
+    -fx-border-color:#0E0F0F;
+    -fx-border-style:solid;
+    -fx-border-width:1;
+    -fx-text-fill:#FFF;
+    -fx-text-size:14px;
+}
+
+.combo-box .arrow{
+    -fx-background-color:#6B4EFF;
+    -fx-text-fill:#FFF;
+}
+
+.combo-box .arrow-button{
+    -fx-background-color:white;
+    -fx-border-style:none;
+    -fx-text-fill:#FFF;
+}
+
+.combo-box .arrow-button{
+    -fx-background-color:#0E0F0F;
+    -fx-text-fill:#FFF;
+}
+.combo-box .list-cell{
+    -fx-background-color:#0E0F0F;
+    -fx-text-fill:#FFF;
+}

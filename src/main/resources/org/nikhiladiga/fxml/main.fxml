@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<AnchorPane prefHeight="850.0" prefWidth="500.0" style="-fx-background-color: #3D3C40;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nikhiladiga.controller.MainController">
+   <children>
+      <BorderPane layoutX="-2.0" prefHeight="850.0" prefWidth="506.0" style="-fx-background-color: #3D3C40;">
+         <center>
+            <AnchorPane prefHeight="493.0" prefWidth="506.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="133.0" layoutY="25.0" prefHeight="47.0" prefWidth="241.0" stylesheets="@../css/main.css" text="Create shortcut" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Slab Regular" size="30.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="40.0" layoutY="83.0" prefHeight="598.0" prefWidth="427.0" spacing="25.0">
+                     <children>
+                        <VBox prefHeight="54.0" prefWidth="427.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: #fff;" text="Version*" />
+                              <TextField fx:id="appVersion" stylesheets="@../css/main.css" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="54.0" prefWidth="427.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: #fff;" text="Name*" />
+                              <TextField fx:id="appName" stylesheets="@../css/main.css" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="54.0" prefWidth="427.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: #fff;" text="Comment" />
+                              <TextField fx:id="appComment" stylesheets="@../css/main.css" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="54.0" prefWidth="427.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: #fff;" text="Executable path*" />
+                              <Label fx:id="appExecPath" alignment="CENTER" prefHeight="29.0" prefWidth="427.0" styleClass="path-label" stylesheets="@../css/main.css" text="Path to executable file or script" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="54.0" prefWidth="427.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: #fff;" text="Icon path" />
+                              <Label fx:id="appIconPath" alignment="CENTER" prefHeight="29.0" prefWidth="427.0" styleClass="path-label" stylesheets="@../css/main.css" text="Path to application icon" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="54.0" prefWidth="427.0" spacing="10.0">
+                           <children>
+                              <VBox prefHeight="54.0" prefWidth="427.0" spacing="10.0">
+                                 <children>
+                                    <Label style="-fx-text-fill: #fff;" text="Categories" />
+                                    <CheckComboBox fx:id="appCategories" prefHeight="48.0" prefWidth="427.0" stylesheets="@../css/main.css" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="54.0" prefWidth="427.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: #fff;" text="Terminal application" />
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                                 <children>
+                                     <JFXRadioButton fx:id="terminalTrue" styleClass="jfx-radio-button" stylesheets="@../css/main.css" text="Yes" textFill="WHITE">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="terminalRequiredGroup" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                     <JFXRadioButton fx:id="terminalFalse" selected="true" styleClass="jfx-radio-button" stylesheets="@../css/main.css" text="No" textFill="WHITE" toggleGroup="$terminalRequiredGroup" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="79.0" prefWidth="506.0" spacing="150.0" style="-fx-background-color: #313033;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="16.0" prefWidth="236.0" style="-fx-text-fill: #fff; -fx-font-size: 10;" text="Made with ❤️ by Nikhil Adiga" />
+                  <JFXButton onAction="#handleSave" styleClass="button-raised" stylesheets="@../css/main.css" text="Save" />
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
