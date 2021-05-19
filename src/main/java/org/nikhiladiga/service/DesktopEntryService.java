@@ -12,7 +12,7 @@ import java.util.Collections;
 
 public class DesktopEntryService {
 
-    private final Utils utils = new Utils();
+    private Utils utils = new Utils();
 
     //Method with basic file structure as string that accepts dynamic values
     public boolean generateFileContent(String version, Boolean isTerminalRequired, String appName, String appComment, String appExecPath, String appIconPath, ObservableList<String> categories){
@@ -59,13 +59,17 @@ public class DesktopEntryService {
 
     //Method to write file to location
     public boolean saveFile(String fileName, StringBuilder content){
-        Path path = Paths.get("/usr/share/applications/"+fileName);
-        try{
-            Files.write(path, Collections.singleton(content));
-            utils.execCmd(new String[]{"bash","-c","chmod +x "+fileName});
-            return true;
-        }catch(IOException e){
-            e.printStackTrace();
+        String username = utils.execCmd(new String[]{"bash","-c","whoami"});
+        if(username!=null){
+            Path path = Paths.get("/home/"+username+"/.local/share/applications/"+fileName);
+            try{
+                Files.write(path, Collections.singleton(content));
+                return true;
+            }catch(IOException e){
+                e.printStackTrace();
+                return false;
+            }
+        }else{
             return false;
         }
     }
